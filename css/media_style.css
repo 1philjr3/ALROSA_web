@@ -1,0 +1,342 @@
+
+
+:root{
+    --white: #f9f9f9;
+    --black: #36383F;
+    --grey: #85888C;
+}
+
+.nav-open {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: var(--black);
+    overflow: hidden;
+}
+
+
+
+/*.nav-list .nav-link:hover{*/
+/*    background-color: var(--grey);*/
+/*}*/
+
+/*.nav-list-2 .nav-link:hover{*/
+/*    background-color: var(--grey);*/
+/*}*/
+
+.nav-open{
+    max-height: 0;
+    transition: max-height .5s ease-out;
+}
+
+/* Menu Icon */
+
+.hamb {
+    position: absolute;
+    max-width: 141px;
+    height: 24px;
+    top: 10px;
+    right: 20px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    z-index: 1; /* Добавлено значение z-index */
+}
+
+
+.hamb-line {
+    background: white;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+.hamb-line::before,
+.hamb-line::after{
+    background: white;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all 0.2s ease-out;
+    width: 100%;
+}
+
+.hamb-line::before{
+    top: 5px;
+}
+
+.hamb-line::after{
+    top: -5px;
+}
+
+
+.side-menu {
+    display: none;
+}
+
+/* Toggle menu icon */
+
+.side-menu:checked ~ .nav-open{
+    max-height: 100%;
+}
+
+.side-menu:checked ~ .hamb .hamb-line {
+    background: transparent;
+}
+
+.side-menu:checked ~ .hamb .hamb-line::before {
+    transform: rotate(-45deg);
+    top:0;
+
+}
+
+.side-menu:checked ~ .hamb .hamb-line::after {
+    transform: rotate(45deg);
+    top:0;
+}
+
+/*.nav-list,*/
+/*.nav-list-2 {*/
+/*    align-items: flex-start;*/
+/*    column-gap: 65px;*/
+/*    position: absolute;*/
+/*    top: 125px;*/
+/*    left: 133px;*/
+/*    text-decoration: none;*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    flex-direction: column;*/
+/*}*/
+
+
+/* Responsiveness */
+
+@media (min-width: 1177px) {
+
+    .nav-open{
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+
+    }
+
+    .nav-list .nav-item{
+        float: left;
+    }
+
+    .nav-list-2 .nav-item{
+        float: left;
+    }
+
+    .nav-list .nav-link:hover{
+        background-color: transparent;
+        color: var(--grey);
+    }
+    .nav-list-2 .nav-link:hover{
+        background-color: transparent;
+        color: var(--grey);
+    }
+
+    .hamb{
+        display: none;
+    }
+
+}
+
+/*@media (max-width: 1177px) {*/
+
+/*}*/
+/*@media (max-width: 1177px) {*/
+/*    .header-nav .nav-list,*/
+/*    .header-nav .nav-list-2 {*/
+/*        z-index: 1;*/
+/*        display: none;*/
+/*        flex-direction: column;*/
+/*        position: absolute;*/
+/*        top: 88px;*/
+/*        right: 20px;*/
+/*        background-color: #090a0b;*/
+/*        padding: 10px;*/
+/*        border-radius: 5px;*/
+/*        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);*/
+/*    }*/
+
+/*    .hamb {*/
+/*        display: block;*/
+/*    }*/
+
+/*    .header-nav .img {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .header-nav .img-2 {*/
+/*        left: auto;*/
+/*        right: 15px;*/
+/*    }*/
+
+/*    .header-nav .nav-list,*/
+/*    .header-nav .nav-list-2 {*/
+/*        top: 70px;*/
+/*        left: 0;*/
+/*        right: 0;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .header-nav .nav-list,*/
+/*    .side-menu:checked ~ .header-nav .nav-list-2 {*/
+/*        display: flex;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .header-nav .nav-list,*/
+/*    .side-menu:checked ~ .header-nav .nav-list-2 {*/
+
+/*        display: flex;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .hamb .hamb-line::before {*/
+/*        transform: rotate(-45deg);*/
+/*        top: 0;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .hamb .hamb-line::after {*/
+/*        transform: rotate(45deg);*/
+/*        top: 0;*/
+/*    }*/
+
+/*    .header-nav .nav-item {*/
+/*        margin-bottom: 10px;*/
+/*    }*/
+
+/*    .header-nav .view-logo {*/
+/*        left: 50px;*/
+/*    }*/
+
+/*    .header-nav .img {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .hamb .hamb-line::before {*/
+/*        transform: rotate(-45deg);*/
+/*        top: 0;*/
+/*    }*/
+
+/*    .side-menu:checked ~ .hamb .hamb-line::after {*/
+/*        transform: rotate(45deg);*/
+/*        top: 0;*/
+/*    }*/
+
+/*    !*.header-nav .nav-button {*!*/
+/*    !*    display: block;*!*/
+/*    !*}*!*/
+/*}*/
+
+/*@media (max-width: 1177px) {*/
+/*    .header-nav .nav-item {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .header-nav .img {*/
+/*        display: none;*/
+/*    }*/
+
+/*    .header-nav .img-2 {*/
+/*        left: auto;*/
+/*        right: 15px;*/
+/*    }*/
+
+
+/*    .header-nav .nav-button  {*/
+/*        display: block;*/
+/*    }*/
+
+/*    .header-nav .view-logo {*/
+/*        left: 50px;*/
+/*    }*/
+
+/*    !*nav select {*!*/
+/*    !*    display: inline-block;*!*/
+/*    !*}*!*/
+
+/*    !*.nav.open .nav-list,*!*/
+/*    !*.nav-list-2 {*!*/
+/*    !*    position: fixed;*!*/
+/*    !*    top: 0;*!*/
+/*    !*    bottom: 0;*!*/
+/*    !*    left: 0;*!*/
+/*    !*    right: 0;*!*/
+/*    !*    background-color: black;*!*/
+/*    !*    !*background-color: rgba(0, 0, 0, 0.7);*!*!*/
+
+/*    !*    z-index: 1;*!*/
+/*    !*    padding: 46px 30px;*!*/
+/*    !*    display: flex;*!*/
+/*    !*    flex-direction: column;*!*/
+/*    !*    row-gap: 5px;*!*/
+
+/*    !*    font-size: 20px;*!*/
+/*    !*    font-weight: 600;*!*/
+/*    !*}*!*/
+
+/*    !*.header-nav .nav-button {*!*/
+/*    !*    position: fixed;*!*/
+/*    !*    z-index: 9;*!*/
+/*    !*}*!*/
+
+/*}*/
+
+/*!* Add this media query to adjust styles for smaller screens *!*/
+/*!*@media (max-width: 1200px) {*!*/
+
+/*!*    .header-nav .view-logo {*!*/
+/*!*        left: 0; !* Move the logo to the left *!*!*/
+/*!*    }*!*/
+/*!*}*!*/
+
+/*!*@media (max-width: 700px) {*!*/
+
+/*!*}*!*/
+
+/*!* Default styles for all screen sizes *!*/
+/*!* Add your default styles here *!*/
+
+/*!*!* Small devices (phones, 576px and up) *!*!*/
+/*!*@media (min-width: 576px) {*!*/
+/*!*    !* Example styles for small devices *!*!*/
+/*!*    .header-nav {*!*/
+/*!*        flex-direction: column;*!*/
+/*!*    }*!*/
+
+/*!*    .nav-list {*!*/
+/*!*        margin-top: 20px;*!*/
+/*!*    }*!*/
+
+/*!*    .nav-list-2 {*!*/
+/*!*        display: none;*!*/
+/*!*    }*!*/
+
+/*!*    !* Add more styles for small devices here *!*!*/
+/*!*}*!*/
+
+/*!*!* Medium devices (tablets, 768px and up) *!*!*/
+/*!*@media (min-width: 768px) {*!*/
+/*!*    !* Example styles for medium devices *!*!*/
+/*!*    .header-nav {*!*/
+/*!*        flex-direction: row;*!*/
+/*!*    }*!*/
+
+/*!*    .nav-list {*!*/
+/*!*        margin-top: 0;*!*/
+/*!*    }*!*/
+
+/*!*    .nav-list-2 {*!*/
+/*!*        display: block;*!*/
+/*!*    }*!*/
+
+/*!*    !* Add more styles for medium devices here *!*!*/
+/*!*}*!*/
+

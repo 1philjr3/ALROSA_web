@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+body,
+html {
+    font-family: 'Playfair Display SC', serif;
+    background-color: #090a0b;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #090a0b;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    max-width: 100vh;
+    margin: 0 auto;
+    padding: 0 30px;
+    /*overflow: auto;*/
+    /*overflow-x: hidden;*/
+    /*overflow-y: scroll;*/
+    overflow: hidden;
+}
+
+/* Header */
+
+.header {
+    background-color: #090a0b;
+}
+
+.view {
+    position: absolute;
+    width: 100%;
+    /*height: 1152px;*/
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.overlap-group {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../img/beautiful-prism-light-deflection-1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.6);
+}
+
+/*.beautiful-prism {*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    height: 1152px;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    background-image: url(../img/beautiful-prism-light-deflection-1.png);*/
+/*    background-size: cover;*/
+/*}*/
+
+.rectangle {
+    position: absolute;
+    width: 100%;
+    height: 205px;
+    top: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgb(17, 17, 17) 66.67%, rgba(17, 17, 17, 0.56) 83.85%, rgba(17, 17, 17, 0) 100%);
+    opacity: 0.3;
+}
+
+
+
+.header-nav {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    align-items: flex-end;
+    gap: 65px;
+    left: 0;
+    text-decoration: none;
+    font-family: "Nanum Myeongjo", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 75px;
+    overflow: hidden;
+}
+
+.header-nav .view-logo {
+    position: absolute;
+    width: 176px;
+    height: 75px;
+    top: 96px;
+    left: 777px;
+}
+
+.header-nav .sakha-diamond-empire {
+    position: absolute;
+    width: 87px;
+    top: 0;
+    left: 87px;
+    font-family: "Nanum Myeongjo", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+    transform: translate(-45%, -25%);
+}
+
+.header-nav .teenyicons-diamond {
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    top: 0;
+    left: 0;
+    transform: translate(-55%, -25%);
+}
+
+/*!*hamburger*!*/
+/*!* Menu Icon *!*/
+/*.hamb {*/
+/*    float: right;*/
+/*    position: absolute;*/
+/*    max-width: 141px;*/
+/*    height: 24px;*/
+/*    top: 121px;*/
+/*    left: 1482px;*/
+/*    padding: 0;*/
+/*    margin: 0;*/
+/*    cursor: pointer;*/
+
+/*}*/
+
+/*.hamb-line {*/
+/*    background: white;*/
+/*    display: block;*/
+/*    height: 2px;*/
+/*    position: relative;*/
+/*    width: 24px;*/
+/*}*/
+
+/*.hamb-line::before,*/
+/*.hamb-line::after {*/
+/*    background: white;*/
+/*    content: '';*/
+/*    display: block;*/
+/*    height: 100%;*/
+/*    position: absolute;*/
+/*    transition: all 0.2s ease-out;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.hamb-line::before {*/
+/*    top: 5px;*/
+/*}*/
+
+/*.hamb-line::after {*/
+/*    top: -5px;*/
+/*}*/
+
+/*.side-menu {*/
+/*    display: none;*/
+/*}*/
+
+/*.side-menu:checked ~ .hamb .hamb-line::before {*/
+/*    transform: rotate(-45deg);*/
+/*    top: 0;*/
+/*}*/
+
+/*.side-menu:checked ~ .hamb .hamb-line::after {*/
+/*    transform: rotate(45deg);*/
+/*    top: 0;*/
+/*}*/
+
+
+/* NAV */
+
+/*.header-nav .nav-open {*/
+/*    max-height: 0;*/
+/*    transition: max-height .5s ease-out;*/
+/*}*/
+.header-nav .nav-link {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Nanum Myeongjo", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.header-nav .nav-list {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 65px;
+    position: absolute;
+    top: 125px;
+    left: 133px;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transform: translate(-5%, -50%);
+    row-gap: 15px;
+    right: 0;
+}
+
+.header-nav .nav-list-2 {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 65px;
+    position: absolute;
+    top: 124px;
+    left: 1003px;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transform: translate(-15%, -50%);
+    row-gap: 15px;
+    right: 0;
+}
+
+.header-nav .img {
+    position: absolute;
+    width: 141px;
+    height: 24px;
+    top: 121px;
+    left: 1482px;
+    transform: translate(-55%, -50%);
+    padding: 0;
+    margin: 0;
+}
+
+/*.header-nav .nav-button {*/
+/*    display: none;*/
+/*}*/
+
+/*.header-nav .nav-select {*/
+/*    display: none;*/
+/*}*/
+
+/*.header-nav .visually-hidden {*/
+/*    display: none;*/
+/*}*/
+
+
+
+/* Header conent */
+
+/*.header-row {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    column-gap: 30px;*/
+/*}*/
+
+.header-content {
+    max-width: 903px;
+}
+
+.div-wrapper {
+    position: absolute;
+    width: 907px;
+    height: 480px;
+    top: 330px;
+    left: 100px;
+}
+
+.overlap-2 {
+    position: relative;
+    max-width: 903px;
+    height: 480px;
+}
+
+.rectangle-2 {
+    position: absolute;
+    width: 903px;
+    height: 480px;
+    top: 0;
+    left: 0;
+    background-color: #000000;
+    border: 10px solid #d9d9d9;
+    opacity: 0.2;
+}
+
+.text-wrapper {
+    position: absolute;
+    width: 704px;
+    top: 0;
+    left: 109px;
+    font-family: "Playfair Display SC", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 100px;
+    letter-spacing: -1px;
+    line-height: 106px;
+}
+
+.header-content p {
+    position: absolute;
+    width: 671px;
+    top: 357px;
+    left: 109px;
+    font-family: "Playfair Display SC", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 21px;
+}
+
+.line {
+    position: absolute;
+    width: 646px;
+    height: 5px;
+    top: 310px;
+    left: 109px;
+}
+
+.header-img {
+    position: absolute;
+    width: 684px;
+    height: 648px;
+    top: 252px;
+    left: 1003px;
+    transition: transform 0.7s ease;
+}
+
+.png-transparent-wrapper {
+    position: relative;
+    width: 905px;
+    height: 1008px;
+    top: -180px;
+    left: -180px;
+    background-image: url(../img/png-transparent-diamond-cut-wedding-ring-engagement-ring-diamond.png);
+    background-size: 100% 100%;
+}
+
+.png-transparent {
+    position: absolute;
+    width: 684px;
+    height: 648px;
+    top: 180px;
+    left: 180px;
+}
+
+/*Button*/
+
+
+.button_catalog{
+    position: absolute;
+    width: 409px;
+    height: 90px;
+    top: 860px;
+    left: 209px;
+}
+
+.overlap_catalog {
+    position: relative;
+    width: 407px;
+    height: 80px;
+    box-shadow: -25px 25px 8px #00000040;
+    transition: all 0.2s;
+    border: 5px solid;
+    border-image: linear-gradient(to bottom, rgba(18, 118, 148, 0.4), rgba(157.25, 89.78, 13.1, 0.6)) 1;
+}
+
+.overlap_catalog:active {
+    /* стили при активации (нажатии) */
+    box-shadow: -25px 35px 12px #00000040; /* изменение тени при нажатии */
+    transform: translateY(5px); /* сдвиг элемента вниз при нажатии */
+    /* другие стили, если необходимо */
+}
+
+.overlap_catalog:hover {
+    transform: translateY(9px); /* сдвиг вправо при наведении */
+}
+
+.text_catalog {
+    position: absolute;
+    top: 18px;
+    left: 42px;
+    font-size: 32px;
+    font-family: "Playfair Display SC", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: normal;
+    text-decoration: none;
+}
+
+
+.frame-wrapper {
+    position: absolute;
+    width: 273px;
+    height: 17px;
+    top: 1039px;
+    left: 1355px;
+}
+
+.frame {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+}
+
+.text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-size: 13px;
+    font-family: "Playfair Display SC", Helvetica, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0;
+    line-height: normal;
+}
