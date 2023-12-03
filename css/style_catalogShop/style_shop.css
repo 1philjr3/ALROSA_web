@@ -1,0 +1,565 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display SC', serif;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: black;
+}
+
+#header-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*z-index: 1000;*/
+    /*height: fit-content;*/
+    padding: 0 20px;
+    width: 100%;
+    border-bottom: 2px solid white;
+    background: black;
+    margin: auto;
+    gap: 25px;
+}
+
+.nav {
+    /*display: block;*/
+    display: flex;
+    /*position: relative;*/
+    list-style-type: none;
+    gap: 35px;
+    /*margin-right: auto; !* Добавьте эту строку *!*/
+    .link {
+        color: white;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+}
+
+#header-2 ul li a {
+    display: block;
+    transition: all 0.3s ease;
+}
+
+#header-2 ul li a:hover{
+    color: #ffffff;
+    padding: 8px 8px;
+}
+
+/*#header-2 ul li:last-child a:hover {*/
+/*    color: #ffffff;*/
+/*    padding-left: 8px;*/
+/*}*/
+
+.cart {
+    display: grid;
+    gap: 10px;
+    /*align-items: center;*/
+}
+
+.cart img {
+    height: 24px;
+    width: auto;
+    transition: transform 0.2s ease; /* Добавляем анимацию для плавного перехода */
+}
+
+.cart img:hover {
+    transform: scale(1.6); /* Увеличиваем размер на 10% при наведении курсора */
+}
+
+/* Features Styling:Start */
+#features{
+    display: block;
+    height: fit-content;
+    width: 100%;
+    padding: 100px 0;
+    text-align: center;
+}
+
+h3{
+    margin-bottom: 50px;
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    font-weight: 100;
+}
+
+h3 span {
+    font-family: 'Playfair Display SC', serif;
+    color: yellow;
+}
+
+#features .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: fit-content;
+    width: 550px;
+    margin: 20px auto 0;
+    padding: 50px;
+    border: none;
+    border-radius: 24px;
+    color: white;
+
+    background: rgba(123, 134, 118, 0.2);
+}
+
+#features .icon{
+    flex-basis: 20%;
+}
+
+#features ion-icon{
+    margin-right: 15px;
+    padding: 10px;
+    font-size: 50px;
+    color: white;
+    border-radius: 100px;
+
+    background: black;
+}
+
+#features h5{
+    font-size: 2em;
+    text-align: left;
+    font-weight: 100;
+}
+
+#features .details{
+    flex-basis: 80%;
+}
+
+#features .details p{
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: left;
+}
+/* Features Styling:End */
+
+/* How It Works:Start */
+#how_it_works{
+    display: block;
+    /*height: fit-content;*/
+    width: 100%;
+    height: 100%;
+    /*padding: 100px;*/
+    text-align: center;
+}
+
+#how_it_works iframe{
+    border-radius: 24px;
+    width: 50%;
+    height: 350px;
+    object-fit: cover;
+}
+
+#how_it_works p{
+    margin: 15px 0 30px;
+    font-weight: 300;
+    color: white;
+}
+
+
+/* Add these styles to your existing CSS */
+#pricing .container {
+    max-width: 1200px;
+    max-height: 500px;/* Измените значение на желаемую ширину */
+    overflow: auto;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 35px auto; /* Чтобы контент оставался по центру */
+}
+
+/*#pricing .container {*/
+/*    max-width: 1200px;*/
+/*    max-height: 500px;*/
+/*    overflow: auto;*/
+/*    border: 1px solid white;*/
+/*    !* padding-bottom: 50px; *!*/
+/*    padding: 20px;*/
+/*    margin-bottom: 35px;*/
+/*}*/
+
+#pricing .row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#pricing .col-md-3 {
+    flex-basis: calc(33.33% - 20px); /* 20px is the margin between items */
+    margin: 10px;
+    max-width: calc(33.33% - 20px); /* Added max-width to prevent items from stretching */
+}
+
+#pricing .product-grid5 {
+    width: 100%; /* Change to 100% to take full width of col-md-3 */
+    font-family: 'Playfair Display SC', serif;
+    position: relative;
+}
+
+#pricing .product-grid5 .product-image5 {
+    overflow: hidden;
+    position: relative;
+}
+
+#pricing .product-grid5 .product-image5 a {
+    display: block;
+}
+
+#pricing .product-grid5 .product-image5 img {
+    width: 100%;
+    height: auto;
+    max-width: 100%; /* Add max-width to limit image size */
+}
+
+#pricing .product-image5 .pic-1 {
+    opacity: 1;
+}
+
+#pricing .product-grid5:hover .product-image5 .pic-1 {
+    opacity: 0;
+}
+
+#pricing .product-image5 .pic-2 {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center;
+}
+
+#pricing .product-grid5:hover .product-image5 .pic-2 {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+#pricing .product-grid5 .social {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#pricing .product-grid5 .social li {
+    display: block;
+    margin: 0 0 10px;
+    transition: all .5s;
+}
+
+#pricing .product-grid5 .social li:nth-child(2) {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+#pricing .product-grid5:hover .social li:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#pricing .product-grid5 .social li:nth-child(3) {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+#pricing .product-grid5:hover .social li:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: .2s;
+}
+
+#pricing .product-grid5 .social li a {
+    color: #888;
+    background: black;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: block;
+    transition: .5s ease 0s;
+}
+
+#pricing .product-grid5 .social li a:hover {
+    color: white;
+    background: #1e3799;
+}
+
+#pricing .product-grid5 .select-options {
+    color: white;
+    background-color: black;
+    font-size: 13px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px 5px;
+    margin: 0 auto;
+    opacity: 0;
+    display: block;
+    position: absolute;
+    width: 92%;
+    left: 0;
+    bottom: -100px;
+    right: 0;
+    transition: .5s ease 0s;
+}
+
+#pricing .product-grid5 .select-options:hover {
+    color: #fff;
+    background-color: #1e3799;
+    text-decoration: none;
+}
+
+#pricing .product-grid5:hover .select-options {
+    opacity: 1;
+    bottom: 10px;
+    text-decoration: none;
+}
+
+#pricing .product-grid5 .product-content {
+    padding: 20px 10px;
+}
+
+#pricing .product-grid5 .title {
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin: 0 0 10px;
+    transition: all .3s ease 0s;
+}
+
+#pricing .product-grid5 .title a {
+    color: white;
+}
+
+#pricing .product-grid5 .title a:hover {
+    color: rebeccapurple;
+}
+
+#pricing .product-grid5 .price {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 990px) {
+    #pricing .product-grid5 {
+        margin-bottom: 30px;
+    }
+}
+
+
+
+/* Hero Styling:Start */
+.hero{
+    display: block;
+    height: fit-content;
+    width: 100%;
+    padding: 50px 0;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.hero h3{
+    width: 450px;
+    margin: 35px auto;
+    font-size: 35px;
+    color: white;
+}
+
+.hero .sub-title{
+    font-size: 13px;
+    font-weight: 400;
+    color: white;
+    margin: 0 auto;
+}
+
+.hero form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0 10px;
+}
+
+.hero form input:first-child{
+    height: 40px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid gainsboro;
+}
+
+.hero input#submit{
+    cursor: pointer;
+    height: 40px;
+    width: 100px;
+    margin-left: 20px;
+    font-weight: 100;
+    color: white;
+    border: none;
+    border-radius: 12px;
+
+    background: blue;
+}
+
+#acknowledgement{
+    font-size: 10px;
+    font-weight: 100;
+    color: white;
+}
+
+
+#acknowledgement a{
+    color: rebeccapurple;
+}
+
+
+.container-2{
+    max-width: 1170px;
+    margin:auto;
+}
+.wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    /*left:0;*/
+    bottom: -10px;
+    background: linear-gradient(to left, rgb(35, 112, 199, 0.5), rgba(255, 153, 0, 0.5));
+    height: 2px;
+    box-sizing: border-box;
+    width: 37px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+    gap: 35px;
+}
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+@media(max-width: 574px){
+    .footer-col{
+        width: 100%;
+    }
+}
+
+
+/* Responsiveness:End */
+/* Pricing Table:End */
+/* Footer:Start */
+.footer {
+    display: block;
+    padding: 20px;
+    height: fit-content;
+    text-align: right;
+
+    background: rgba(123, 134, 118, 0.2);
+}
+
+.footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+    width: 358px;
+    list-style-type: none;
+}
+
+.footer a {
+    text-decoration: none;
+    font-family: 'Playfair Display SC', serif;
+    color: white;
+}
+
+.footer p {
+    font-family: 'Playfair Display SC', serif;
+    color: #737373;
+}
+
+/* Footer:End */
+/* Page Responsiveness:Start */
+@media screen and (width < 680px) {
+    #header ul {
+        display: none;
+    }
+
+    #nav-bar ion-icon {
+        display: block;
+    }
+}
+@media screen and (width < 650px) {
+    #features .box {
+        max-width: 420px;
+    }
+
+    .hero form input:first-child {
+        width: 250px;
+    }
+}

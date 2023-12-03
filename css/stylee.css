@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+:root {
+    --white-text-light: #FFFFFF;
+    --grey-low-text-footer: #BBBBBB;
+    --white-high: #D9D9D9;
+    --red: #FF0000;
+    --black: #000000;
+    --gradient: #0E7797, #9D5A0D;
+    --black-light: #111111;
+    --gradient-white-black: #121212, #101010A3, #0E0E0E00;
+    --grey0high-burger: #616161;
+}
+
+
+.body {
+    font-family: 'Playfair Display SC', serif;
+}
+
+.page-light {
+    position: relative;
+    min-height: 100vh;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/beautiful-prism-light-deflection-1.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.4); /* Замените значение на желаемую яркость (от 0 до 1) */
+    z-index: -1; /* Помещаем фон под контент */
+}
+
+
+.wrapper {
+    max-width: 1728px;
+    max-height: 1150px;
+    height: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 65px;
+}
+
+.nav {
+    display: flex;
+    position: relative;
+    list-style-type: none;
+    padding-left: 0;
+    gap: 55px;
+    .link {
+        color: var(--white-text-light);
+        text-decoration: none;
+        white-space: nowrap;
+    }
+}
+
+.logo {
+
+}
+
+.cart {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 5px;
+    position: relative;
+    .img {
+        position: relative;
+        height: 24px;
+        transition: transform 0.2s ease; /* Добавляем анимацию для плавного перехода */
+    }
+
+    .img:hover {
+        transform: scale(1.6); /* Увеличиваем размер на 10% при наведении курсора */
+    }
+}
+
+.button_catalog {
+    padding: 50px;
+}
+
+.main {
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+
+    .main-item {
+        flex: 0 0 50%
+    }
+
+    .sale {
+        font-family: 'Playfair Display SC', serif;
+
+        .rectangle {
+            width: 803px;
+            border: solid rgba(128, 128, 128, 0.3);
+            padding: 30px;
+            .line {
+                content: "";
+                width: 646px;
+                height: 5px;
+                top: 10px;
+                margin-left: 54px;
+                margin-right: 54px;
+                background-image: url('/img/line-1.svg');
+            }
+
+        }
+
+        .sale-descrip {
+            margin-top: 0;
+            width: 704px;
+            top: 50px;
+            font-family: 'Playfair Display SC', serif;
+            font-size: 5em;
+            letter-spacing: -1px;
+            line-height: 76px;
+            color: var(--white-text-light);
+            padding-left: 54px;
+            padding-right: 54px;
+            font-weight: 400;
+        }
+
+        .text-rect {
+            font-family: 'Playfair Display SC', serif;
+            width: 671px;
+            font-size: 18px;
+            letter-spacing: 0;
+            padding-left: 54px;
+            padding-right: 54px;
+            font-weight: 400;
+            color: var(--white-text-light);
+            line-height: 21px;
+        }
+    }
+
+    .box {
+        position: relative;
+        top: -228px;
+    }
+}

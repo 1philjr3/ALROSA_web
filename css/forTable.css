@@ -1,0 +1,70 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+section {
+    flex: 1; /* Занимает всю оставшуюся высоту экрана */
+}
+
+
+table.grid-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px; /* Отступ между ячейками */
+    color: white;
+    padding-bottom: 50px;
+}
+
+
+h4 {
+    font-weight: 100;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+/* Скрываем <thead>, <tbody> и <tr> */
+table.grid-table thead,
+table.grid-table tbody,
+table.grid-table tr {
+    display: contents;
+}
+
+/* Стилизация ячеек таблицы */
+table.grid-table td,
+table.grid-table th {
+    border: 1px solid #ccc; /* Границы для ячеек */
+    padding: 10px; /* Отступ внутри ячеек */
+    text-align: center;
+}
+
+table.grid-table td:nth-child(even) {
+    background-color: forestgreen; /* Цвет фона для четных строк */
+}
+
+
+
+/* Скрытие элементов на средних экранах */
+@media screen and (min-width: 1920px) {
+    .container {
+        padding: 20px; /* Увеличить отступы для контейнера на больших экранах */
+    }
+
+    .params {
+        font-size: 24px; /* Увеличить размер шрифта для заголовков */
+    }
+}
+
+/* Скрытие элементов на больших экранах */
+@media screen and (min-width: 2560px) {
+
+    .container {
+        max-width: 1400px; /* Увеличить максимальную ширину контейнера */
+    }
+}

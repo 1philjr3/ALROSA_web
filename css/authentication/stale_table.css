@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
+
+body {
+    text-align: center;
+    background-color: black;
+    font-family: 'Playfair Display SC', serif;
+}
+
+/*#dob {*/
+/*    color: orange;*/
+/*}*/
+
+.row {
+    display: block;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.row-header {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.back-button {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 47px;
+}
+
+.container {
+    max-width: 1200px;
+    max-height: 500px;/* Измените значение на желаемую ширину */
+    overflow: auto;
+    border: 1px solid white;
+    padding: 20px;
+    margin: 85px; /* Чтобы контент оставался по центру */
+    text-align: center;
+    background-color: white;
+    display: inline-block;
+}
+
+label {
+    color: black;
+    font-size: 17px;
+}
+
+/*.form-control {*/
+/*    background-color: #1c7bd0;*/
+/*}*/
+
+.form-control::placeholder {
+    color: grey;
+}
+
+.form-control:focus {
+    border: 1px solid green; /* Используем одинаковый цвет на всей границе */
+    outline: none; /* Убран стандартный браузерный фокус */
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-style: inherit;
+    color: white;
+    text-align: center;
+    font-size: 1em;
+}
+
+h2 {
+    margin-bottom: 40px;
+    font-style: inherit;
+    color: black;
+    text-align: center;
+}
+
+.button-3 {
+    background-color: green;
+    color: white;
+    border-radius: 20px;
+    margin: 35px 13px 0;
+    padding: 0 5px;
+    border: 2px solid transparent; /* Добавлен стиль границы */
+    transition: border-color 0.3s ease; /* Добавлен переход для плавного изменения цвета границы */
+}
+
+.button-3:hover {
+    border-color: black; /* Изменение цвета границы при наведении */
+    color: black;
+}
+
+/*.btn {*/
+/*    background-color: orange;*/
+/*    color: black;*/
+/*}*/
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid white; /* Добавлено для установки цвета границы таблицы */
+    font-size: 1em;
+}
+
+table th,
+table td {
+    color: white;
+    text-align: center;
+    border: 1px solid white; /* Добавлено для установки цвета границы ячеек таблицы */
+}
+
+.smiley-icon.active::before {
+    content: "🔥";
+    display: inline-block;
+    margin-right: -21px;
+    font-size: 26px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.smiley-icon {
+    top: 38%;
+    right: 68px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px;
+}
+

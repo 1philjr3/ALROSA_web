@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Документ</title>
+    <link rel="stylesheet" href="css/style_catalogShop/style_shop.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+          integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/media_style_2.css"/>
+    <link rel="stylesheet" href="css/burger_menu.css"/>
+    <link rel="stylesheet" href="css/navitaion_button_color.css"/>
+    <link rel="stylesheet" href="css/style_catalogShop/submenu.css"/>
+    <link rel="stylesheet" href="css/style_catalogShop/style_shop.css"/>
+    <link rel="stylesheet" href="css/authentication/style_start.css"/>
+</head>
+<body>
+<div class="background-image"></div>
+<form action="/" method="post">
+    <fieldset class="total-form">
+        <h1>Пожалуйста, войдите в систему</h1>
+
+        <div class="input-item">
+            <label for="email_address" class="label-for-text-box">Адрес электронной почты</label>
+            <input type="email" name="email_address" id="email_address" class="input-receives-text" required size="30">
+        </div>
+
+        <div class="input-item">
+            <label for="password" class="label-for-text-box" autocomplete="current-password">Пароль</label>
+            <input type="password" name="password" id="passwordField" class="input-receives-text" required size="30" autocomplete="current-password">
+            <div class="input-item toggle-password-visibility">
+                <input type="checkbox" name="toggle_password_visibility_checkbox" id="toggle-password-visibility-checkbox" class="label-for-checkbox">
+                <label for="toggle-password-visibility-checkbox" class="label-for-checkbox">👁 Показать пароль</label>
+            </div>
+        </div>
+
+        <div class="input-item">
+            <input type="checkbox" name="keep_logged_in" id="keep_logged_in" class="label-for-checkbox">
+            <label for="keep_logged_in" class="label-for-checkbox">Запомнить меня</label>
+        </div>
+
+        <p>Забыли пароль? <a href="#">Сбросить пароль…</a></p>
+
+        <div class="button-container">
+            <button type="submit" name="authentication_form" class="input-item">ВОЙТИ!</button>
+        </div>
+
+        <a href="regist.html">Создание новой учетной записи</a>
+
+    </fieldset>
+</form>
+<script src="js/password_none.js"></script>
+</body>
+</html>
