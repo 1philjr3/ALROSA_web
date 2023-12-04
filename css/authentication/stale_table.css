@@ -6,10 +6,6 @@ body {
     font-family: 'Playfair Display SC', serif;
 }
 
-/*#dob {*/
-/*    color: orange;*/
-/*}*/
-
 .row {
     display: block;
     flex-wrap: wrap;
@@ -45,10 +41,6 @@ label {
     color: black;
     font-size: 17px;
 }
-
-/*.form-control {*/
-/*    background-color: #1c7bd0;*/
-/*}*/
 
 .form-control::placeholder {
     color: grey;
@@ -129,4 +121,3 @@ table td {
     cursor: pointer;
     font-size: 14px;
 }
-

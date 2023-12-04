@@ -4,13 +4,17 @@
         return window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
     }
     function displayLoadTime() {
-        // отобразим в футере
+        // Отобразим в футере с использованием спойлера
         const loadTime = calculateLoadTime();
         const footer = document.querySelector(".footer");
-        const p = document.createElement("p");
-        p.innerText = `Page loaded in ${loadTime} ms`;
-        // добавили абзац в футер
-        footer.appendChild(p);
+
+        // Создаем элемент спойлера
+        const spoiler = document.createElement("span");
+        spoiler.classList.add("spoiler");
+        spoiler.innerText = `Page loaded in ${loadTime} ms`;
+
+        // Добавляем спойлер в футер
+        footer.appendChild(spoiler);
     }
     // load происходит когда все загружено, все элементы прогружены
     window.addEventListener("load", function() {

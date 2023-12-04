@@ -6,38 +6,38 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Документ</title>
   <link rel="stylesheet" href="css/authentication/stale_table.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" integrity="sha256-dWs+5P+mu5uCP9VeQm6Yqpq1HxSS74aLb5Tvpyhzx5I=" crossorigin="anonymous" />
+
 </head>
 <body>
-  <div class="row">
-
+<div class="row">
   <div class="container form-container">
-
     <div class="row-header">
       <ion-icon class="back-button" name="close-circle-outline" onclick="goBack()"></ion-icon>
       <h2 class="text-center">Регистрация</h2>
     </div>
 
     <div class="row">
-      <div class="col form-group">
-        <label class="col-md-3">ФИО </label>
-        <div class="col-md-9">
+      <div class="form-group">
+        <label>ФИО </label>
+        <div>
           <input type="text" class="form-control" id="fname" placeholder="Иванов Иван Иванович">
           <small id="fname_alert"></small>
         </div>
       </div>
     </div>
 
-    <div class="col form-group">
+    <div class="form-group">
       <div class="row">
-        <label class="col-md-3">Пол</label>
-        <div class="col-md-9">
+        <label>Пол</label>
+        <div>
           <div class="form-check form-check-inline">
-            <input type = "radio" class="form-check-input" id="Male" name="gender" value = "Male">
+            <input type="radio" class="form-check-input" id="Male" name="gender" value="Male">
             <label class="form-check-label" for="male">Мужской</label>
           </div>
 
           <div class="form-check form-check-inline">
-            <input type = "radio" class="form-check-input" id="Female" name="gender" value = "Female">
+            <input type="radio" class="form-check-input" id="Female" name="gender" value="Female">
             <label class="form-check-label" for="female">Женский</label>
           </div><br>
           <small id="gender_alert"></small>
@@ -45,11 +45,10 @@
       </div>
     </div>
 
-    <!-- Добавленные поля для регистрации -->
     <div class="row">
-      <div class="col form-group">
-        <label class="col-md-3">E-mail</label>
-        <div class="col-md-9">
+      <div class="form-group">
+        <label>E-mail</label>
+        <div>
           <input type="text" class="form-control" id="reg_email" placeholder="diamond@mail.ru">
           <small id="reg_email_alert"></small>
         </div>
@@ -57,17 +56,17 @@
     </div>
 
     <div class="row">
-      <label class="col-md-3">Номер телефона</label>
-      <div class="col-md-9">
-        <input type = "text" class="form-control" id="pno" placeholder="9141133937">
+      <label>Номер телефона</label>
+      <div>
+        <input type="text" class="form-control" id="pno" placeholder="9141133937">
         <small id="pno_alert"></small>
       </div>
     </div>
 
     <div class="row">
-      <div class="col form-group">
-        <label class="col-md-3">Логин</label>
-        <div class="col-md-9">
+      <div class="form-group">
+        <label>Логин</label>
+        <div>
           <input type="text" class="form-control" id="reg_login" placeholder="alibaba">
           <small id="reg_login_alert"></small>
         </div>
@@ -75,68 +74,69 @@
     </div>
 
     <div class="row">
-      <div class="col form-group">
+      <div class="form-group">
         <div class="row">
-          <label class="col-md-3">Дата рождения</label>
-          <div class="col-md-9">
+          <label>Дата рождения</label>
+          <div>
             <input type="date" class="form-control" id="dob">
+            <div id="calendar"></div>
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col form-group">
-          <label class="col-md-3">Пароль</label>
-          <div class="col-md-9">
-            <div class="password-container">
-              <input type="password" class="form-control" id="reg_password" placeholder="Ваш пароль">
-              <span class="smiley-icon" onclick="togglePasswordVisibility('reg_password')">🫣</span>
-            </div>
-            <small id="reg_password_alert"></small>
+    <div class="row">
+      <div class="form-group">
+        <label>Пароль</label>
+        <div>
+          <div class="password-container">
+            <input type="password" class="form-control" id="reg_password" placeholder="Ваш пароль">
+            <span class="smiley-icon" onclick="togglePasswordVisibility('reg_password')">🫣</span>
           </div>
+          <small id="reg_password_alert"></small>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col form-group">
-          <label class="col-md-3">Повторите пароль</label>
-          <div class="col-md-9">
-            <div class="password-container">
-              <input type="password" class="form-control" id="reg_repeat_password" placeholder="Повторите ваш пароль">
-              <span class="smiley-icon" onclick="togglePasswordVisibility('reg_repeat_password')">🫣</span>
-            </div>
-            <small id="reg_repeat_password_alert"></small>
+    <div class="row">
+      <div class="form-group">
+        <label>Повторите пароль</label>
+        <div>
+          <div class="password-container">
+            <input type="password" class="form-control" id="reg_repeat_password" placeholder="Повторите ваш пароль">
+            <span class="smiley-icon" onclick="togglePasswordVisibility('reg_repeat_password')">🫣</span>
           </div>
+          <small id="reg_repeat_password_alert"></small>
         </div>
       </div>
+    </div>
 
     <div type="submit" onclick="GetData();" class="button-3">Зарегистрироваться</div>
   </div>
 </div>
 
-<!-- End Of the Form -->
-
-<!-- Start Table Here -->
 <h1 class="text-center">Представим, что это таблица БД</h1>
 
 <table class="table table-bordered">
   <thead>
-  <tr >
+  <tr>
     <th class="text-center">ФИО</th>
     <th class="text-center">Пол</th>
     <th class="text-center">E-mail</th>
     <th class="text-center">Телефон</th>
-    <th class="text-center">Логин</th>
     <th class="text-center">Дата рождения</th>
+    <th class="text-center">Логин</th>
     <th class="text-center">Пароль</th>
     <th class="text-center">Повторный пароль</th>
   </tr>
   </thead>
 </table>
 <script src="js/table.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<!-- End Of the Table -->
-    </div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI/t1eN9RTO83KlK1Xs9FvHc0MjXx3Oq9szc+YQ4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha256-WrZKdgnk3Zl1F1pWk0zQIJgga5W8gsmFbLZtMeij7bw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js" integrity="sha256-f2n0htNnao9+Q7wERWE/jBjKOp2IFeB9Nz9cBQJLO4k=" crossorigin="anonymous"></script>
+
 </body>
 </html>

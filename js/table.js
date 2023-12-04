@@ -1,25 +1,59 @@
 function goBack() {
     window.history.back();
-} // вернуть на страницу назад
+}
+
+// получение данных из формы и их валидации
 function GetData() {
-    var fname = document.getElementById("fname").value;
-    var gender = getGender();
-    var reg_email = document.getElementById("reg_email").value;
-    var pno = document.getElementById("pno").value;
-    var dob = document.getElementById("dob").value;
-    var reg_login = document.getElementById("reg_login").value;
-    var reg_password = document.getElementById("reg_password").value;
-    var reg_repeat_password = document.getElementById("reg_repeat_password").value;
+    // получили все поля
+    const fname = document.getElementById("fname").value;
+    const gender = getGender(); // Вызываем функцию getGender без аргументов
+    const reg_email = document.getElementById("reg_email").value;
+    const pno = document.getElementById("pno").value;
+    const dob = document.getElementById("dob").value;
+    const reg_login = document.getElementById("reg_login").value;
+    const reg_password = document.getElementById("reg_password").value;
+    const reg_repeat_password = document.getElementById("reg_repeat_password").value;
 
-    var fname_patt = /^[A-Za-z\s]+$/;
-    var pno_patt = /^\d+$/;
-    var email_at = "@";
-    var email_atsrh = reg_email.indexOf(email_at);
+    // регулярки для валидации
+    const fname_patt = /^[А-Яа-я\s]+$/;
+    const pno_patt = /^\d{10}$/;
+    const email_at = "@";
+    const email_atsrh = reg_email.indexOf(email_at);
 
-    // Остальной код для валидации и заполнения таблицы
+    // Проверка на ввод ФИО русскими буквами
+    if (!fname_patt.test(fname)) {
+        alert("Введите ФИО русскими буквами");
+        return;
+    }
 
+    if (gender === "") {
+        return;
+    }
+
+    // Проверка на наличие @ в почте
+    if (email_atsrh === -1) {
+        alert("Введите корректный адрес электронной почты через @");
+        return;
+    }
+
+    // Проверка длины номера телефона
+    if (!pno_patt.test(pno)) {
+        alert("Введите корректный номер телефона (10 цифр)");
+        return;
+    }
+
+    // Проверка возраста пользователя
+    const dobValue = new Date(dob);
+    const currentDate = new Date();
+    const minAllowedDate = new Date(currentDate.getFullYear() - 10, currentDate.getMonth(), currentDate.getDate());
+
+    if (dobValue > minAllowedDate) {
+        alert("Пользователь должен быть старше 10 лет");
+        return;
+    }
+
+    // для заполнения таблицы
     var table = document.getElementsByTagName('table')[0];
-
     var newRow = table.insertRow(table.rows.length);
 
     var cel1 = newRow.insertCell(0);
@@ -40,23 +74,14 @@ function GetData() {
     cel7.innerHTML = reg_password;
     cel8.innerHTML = reg_repeat_password;
 
+    // сохраняем данные в localStorage
+    saveDataToLocalStorage(fname, gender, reg_email, pno, dob, reg_login, reg_password, reg_repeat_password);
 }
 
-function getGender() {
-    var male = document.getElementById("Male").checked;
-    var female = document.getElementById("Female").checked;
-
-    if (male) {
-        return "Мужской";
-    } else if (female) {
-        return "Женский";
-    } else {
-        document.getElementById("gender_alert").innerHTML = "Выберите пол";
-        document.getElementById("gender_alert").style.color = "red";
-        return ""; // или можно выбрать значение по умолчанию
-    }
-}
-
+document.addEventListener('DOMContentLoaded', function () {
+    const genderAlert = document.getElementById("gender_alert");
+    genderAlert.style.visibility = "hidden"; // Начально скрыть сообщение об ошибке
+});
 
 function togglePasswordVisibility(inputId) {
     var passwordInput = document.getElementById(inputId);
@@ -71,4 +96,52 @@ function togglePasswordVisibility(inputId) {
     }
 }
 
+function saveDataToLocalStorage(fname, gender, reg_email, pno, dob, reg_login, reg_password, reg_repeat_password) {
+    const userData = {
+        fname,
+        gender,
+        reg_email,
+        pno,
+        dob,
+        reg_login,
+        reg_password,
+        reg_repeat_password
+    };
 
+    localStorage.setItem('userData', JSON.stringify(userData));
+}
+
+function getGender() {
+    var male = document.getElementById("Male").checked;
+    var female = document.getElementById("Female").checked;
+    var genderAlert = document.getElementById("gender_alert");
+
+    if (male || female) {
+        genderAlert.innerHTML = "";
+        return male ? "Мужской" : "Женский";
+    } else {
+        alert("Выберите пол");
+        return "";
+    }
+}
+
+function loadUserDataFromLocalStorage() {
+    const userDataString = localStorage.getItem('userData');
+
+    if (userDataString) {
+        const userData = JSON.parse(userDataString);
+
+        document.getElementById("fname").value;
+        document.getElementById("gender").textContent = userData.gender;
+        document.getElementById("reg_email").value = userData.reg_email;
+        document.getElementById("pno").value = userData.pno;
+        document.getElementById("dob").value = userData.dob;
+        document.getElementById("reg_login").value = userData.reg_login;
+        document.getElementById("reg_password").value = userData.reg_password;
+        document.getElementById("reg_repeat_password").value = userData.reg_repeat_password;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    loadUserDataFromLocalStorage();
+});
