@@ -225,7 +225,7 @@ h3 span {
     opacity: 0;
 }
 
-#pricing .product-image5 .pic-2 {
+#pricing .product-image5 .qwertyy {
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -235,7 +235,7 @@ h3 span {
     transform-origin: center;
 }
 
-#pricing .product-grid5:hover .product-image5 .pic-2 {
+#pricing .product-grid5:hover .product-image5 .qwertyy {
     opacity: 1;
     transform: scale(1.2);
 }
