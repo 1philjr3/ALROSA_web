@@ -80,6 +80,11 @@
         text-decoration: none;
         transition: background 0.9s;
     }
+
+    .menu__item:active {
+        background-color: #ff9900;
+        color: black;
+    }
     .menu__item:hover {
         background: linear-gradient(to left, rgb(35, 112, 199, 0.5), rgba(255, 153, 0, 0.5));
     }

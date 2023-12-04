@@ -1,6 +1,6 @@
 function goBack() {
     window.history.back();
-}
+} // вернуть на страницу назад
 function GetData() {
     var fname = document.getElementById("fname").value;
     var gender = getGender();
@@ -39,8 +39,6 @@ function GetData() {
     cel6.innerHTML = reg_login;
     cel7.innerHTML = reg_password;
     cel8.innerHTML = reg_repeat_password;
-
-    // Ваша дополнительная валидация и логика здесь
 
 }
 
