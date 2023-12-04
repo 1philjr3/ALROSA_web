@@ -217,11 +217,11 @@ h3 span {
     max-width: 100%; /* Add max-width to limit image size */
 }
 
-#pricing .product-image5 .pic-1 {
+#pricing .product-image5 .qwerty {
     opacity: 1;
 }
 
-#pricing .product-grid5:hover .product-image5 .pic-1 {
+#pricing .product-grid5:hover .product-image5 .qwerty {
     opacity: 0;
 }
 
