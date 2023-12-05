@@ -1,11 +1,60 @@
-@media only screen and (max-width: 1178px) {
+@media only screen and (max-width: 1200px) {
+
+    html {
+        background-color: black;
+    }
+
+    .main .sale .text-rect {
+        padding: 0;
+        font-size: 4vw;
+        line-height: 4vh;
+        max-height: 43vh;
+        max-width: 80vw; /* Ограничение по ширине */
+        margin-top: 0;
+        color: var(--white-text-light);
+    }
+
+
+
+
+    .main .sale .sale-descrip {
+        width: 0;
+        font-size: 8vw; /* Используем относительную единицу измерения */
+        line-height: 1.5;
+        color: var(--white-text-light);
+        margin-top: 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .page-light {
+        /*display: flex;*/
+        align-items: center;
+    }
+
+    .wrapper {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .button_catalog {
+        padding: 0;
+        text-align: center;
+        /*top: 84%;*/
+        /*left: 50%;*/
+        /*transform: translate(-50%, -50%);*/
+        margin: 0 auto;
+    }
+
+    .img-2 {
+        width: 100%;
+    }
 
     .nav {
         display: none;
     }
 
     .header {
-        display: block;
         gap: 0;
     }
 
@@ -13,14 +62,17 @@
         display: none;
     }
 
+    .container {
+        width: 100%;
+    }
+
     .main {
         display: block;
-        max-width: 100%;
-        flex-wrap: wrap;
-        padding-top: 0;
+        max-width: 100%; /* Убираем фиксированную ширину */
+        padding: 0 10px; /* Добавляем отступы по бокам для лучшего вида на маленьких экранах */
 
         .main-item {
-            flex: 0 0 50%
+            flex: 0 0 100%; /* Одна колонка на маленьких экранах */
         }
 
         .sale {
@@ -28,38 +80,30 @@
 
             .rectangle {
                 border: none;
+                width: 0;
+                padding: 0;
 
                 .line {
                     display: none;
                 }
             }
 
-            .sale-descrip {
-                font-size: 9em;
-                padding-left: 0;
-                line-height: 126px;
+            .main .sale .sale-descrip {
+                font-size: 8vw; /* Используем относительную единицу измерения */
+                line-height: 1.5;
                 color: var(--white-text-light);
-                margin-top: 0;
+                padding: 0 20px; /* Добавляем отступы по бокам для лучшего вида на маленьких экранах */
+                text-align: center;
+                margin: 0 auto;
             }
 
-            .text-rect {
-                padding: 0;
-                font-size: 28px;
-                line-height: 42px;
-                margin-top: 0;
-                color: var(--white-text-light);
+            .main .sale .sale-descrip span {
+                display: block; /* Каждое слово в отдельном блоке */
             }
         }
 
         .box {
-            position: relative;
-            width: 80%;
-            .png-transparent {
-                width: 52%;
-                position: absolute;
-                top: -443px;
-                right: -251px;
-            }
+            display: none;
         }
     }
 }
