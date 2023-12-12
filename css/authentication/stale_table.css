@@ -4,6 +4,7 @@ body {
     text-align: center;
     background-color: black;
     font-family: 'Playfair Display SC', serif;
+    margin: 0;
 }
 
 .row {
@@ -31,15 +32,16 @@ body {
     overflow: auto;
     border: 1px solid white;
     padding: 20px;
-    margin: 85px; /* Чтобы контент оставался по центру */
+    margin: 0; /* Чтобы контент оставался по центру */
     text-align: center;
     background-color: white;
     display: inline-block;
+    /*position: relative;*/
 }
 
 label {
     color: black;
-    font-size: 17px;
+    font-size: 1em;
 }
 
 .form-control::placeholder {
@@ -49,6 +51,7 @@ label {
 .form-control:focus {
     border: 1px solid green; /* Используем одинаковый цвет на всей границе */
     outline: none; /* Убран стандартный браузерный фокус */
+    transition: border-bottom-color 0.3s ease;
 }
 
 h1 {
@@ -120,4 +123,21 @@ table td {
     transform: translateY(-50%);
     cursor: pointer;
     font-size: 14px;
+}
+
+input:required {
+    border: 1px solid green;
+}
+
+/* Добавляем стили для формы */
+#registrationForm {
+    color: red;
+    max-width: 250px;
+    margin: 0;
+}
+
+.error {
+    font-size: 0.4em;
+    margin-top: 4px;
+    display: flex;
 }

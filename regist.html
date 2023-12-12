@@ -17,101 +17,115 @@
       <h2 class="text-center">Регистрация</h2>
     </div>
 
-    <div class="row">
-      <div class="form-group">
-        <label>ФИО </label>
-        <div>
-          <input type="text" class="form-control" id="fname" placeholder="Иванов Иван Иванович">
-          <small id="fname_alert"></small>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
+    <form id="registrationForm" onsubmit="event.preventDefault(); GetData();">
       <div class="row">
-        <label>Пол</label>
-        <div>
-          <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" id="Male" name="gender" value="Male">
-            <label class="form-check-label" for="male">Мужской</label>
-          </div>
-
-          <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" id="Female" name="gender" value="Female">
-            <label class="form-check-label" for="female">Женский</label>
-          </div><br>
-          <small id="gender_alert"></small>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <label>E-mail</label>
-        <div>
-          <input type="text" class="form-control" id="reg_email" placeholder="diamond@mail.ru">
-          <small id="reg_email_alert"></small>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <label>Номер телефона</label>
-      <div>
-        <input type="text" class="form-control" id="pno" placeholder="9141133937">
-        <small id="pno_alert"></small>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <label>Логин</label>
-        <div>
-          <input type="text" class="form-control" id="reg_login" placeholder="alibaba">
-          <small id="reg_login_alert"></small>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-group">
-        <div class="row">
-          <label>Дата рождения</label>
+        <div class="form-group">
+          <label for="fname">ФИО </label>
           <div>
-            <input type="date" class="form-control" id="dob">
-            <div id="calendar"></div>
+            <input type="text" class="form-control" id="fname" name="fname"
+                   placeholder="Иванов Иван Иванович" pattern="[А-Яа-я\s]+" required
+                   oninvalid="setCustomValidity('ФИО русскими буквами')"
+                   oninput="setCustomValidity('')">
+            <small id="fname_alert"></small>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="form-group">
-        <label>Пароль</label>
+      <div class="row">
+        <div class="form-group">
+          <label>Пол</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" id="Male" name="gender" value="Male">
+              <label class="form-check-label" for="male">Мужской</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" id="Female" name="gender" value="Female">
+              <label class="form-check-label" for="female">Женский</label>
+            </div>
+            <br>
+            <div id="gender_alert" class="error"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reg_email">E-mail</label>
+          <div>
+            <input type="email" class="form-control" id="reg_email" name="reg_email"
+                   placeholder="diamond@mail.ru" required
+                   oninvalid="setCustomValidity('Введите корректно почту')" oninput="setCustomValidity('')">
+            <small id="reg_email_alert"></small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="pno">Номер телефона</label>
         <div>
-          <div class="password-container">
-            <input type="password" class="form-control" id="reg_password" placeholder="Ваш пароль">
-            <span class="smiley-icon" onclick="togglePasswordVisibility('reg_password')">🫣</span>
-          </div>
-          <small id="reg_password_alert"></small>
+          <input type="tel" class="form-control" id="pno" name="pno" placeholder="9141133937"
+                 pattern="\d{10}" required oninvalid="setCustomValidity('10 цифр без +7')"
+                 oninput="setCustomValidity('')">
+          <small id="pno_alert"></small>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="form-group">
-        <label>Повторите пароль</label>
-        <div>
-          <div class="password-container">
-            <input type="password" class="form-control" id="reg_repeat_password" placeholder="Повторите ваш пароль">
-            <span class="smiley-icon" onclick="togglePasswordVisibility('reg_repeat_password')">🫣</span>
+      <div class="row">
+        <div class="form-group">
+          <label for="reg_login">Логин</label>
+          <div>
+            <input type="text" class="form-control" id="reg_login" name="reg_login" placeholder="alibaba"
+                   required>
+            <small id="reg_login_alert"></small>
           </div>
-          <small id="reg_repeat_password_alert"></small>
         </div>
       </div>
-    </div>
 
-    <div type="submit" onclick="GetData();" class="button-3">Зарегистрироваться</div>
+      <div class="row">
+        <div class="form-group">
+          <div class="row">
+            <label for="dob">Дата рождения</label>
+            <div>
+              <input type="date" class="form-control" id="dob" name="dob" required>
+              <div id="calendar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reg_password">Пароль</label>
+          <div>
+            <div class="password-container">
+              <input type="password" class="form-control" id="reg_password" name="reg_password"
+                     placeholder="Ваш пароль" required>
+              <span class="smiley-icon" onclick="togglePasswordVisibility('reg_password')">🫣</span>
+            </div>
+            <small id="reg_password_alert"></small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="reg_repeat_password">Повторите пароль</label>
+          <div>
+            <div class="password-container">
+              <input type="password" class="form-control" id="reg_repeat_password"
+                     name="reg_repeat_password" placeholder="Повторите ваш пароль" required>
+              <span class="smiley-icon"
+                    onclick="togglePasswordVisibility('reg_repeat_password')">🫣</span>
+            </div>
+            <small id="reg_repeat_password_alert"></small>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="button-3">Зарегистрироваться</button>
+    </form>
   </div>
 </div>
 

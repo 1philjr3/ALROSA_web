@@ -6,51 +6,13 @@ function goBack() {
 function GetData() {
     // получили все поля
     const fname = document.getElementById("fname").value;
-    const gender = getGender(); // Вызываем функцию getGender без аргументов
+    const gender = getGender();
     const reg_email = document.getElementById("reg_email").value;
     const pno = document.getElementById("pno").value;
     const dob = document.getElementById("dob").value;
     const reg_login = document.getElementById("reg_login").value;
     const reg_password = document.getElementById("reg_password").value;
     const reg_repeat_password = document.getElementById("reg_repeat_password").value;
-
-    // регулярки для валидации
-    const fname_patt = /^[А-Яа-я\s]+$/;
-    const pno_patt = /^\d{10}$/;
-    const email_at = "@";
-    const email_atsrh = reg_email.indexOf(email_at);
-
-    // Проверка на ввод ФИО русскими буквами
-    if (!fname_patt.test(fname)) {
-        alert("Введите ФИО русскими буквами");
-        return;
-    }
-
-    if (gender === "") {
-        return;
-    }
-
-    // Проверка на наличие @ в почте
-    if (email_atsrh === -1) {
-        alert("Введите корректный адрес электронной почты через @");
-        return;
-    }
-
-    // Проверка длины номера телефона
-    if (!pno_patt.test(pno)) {
-        alert("Введите корректный номер телефона (10 цифр)");
-        return;
-    }
-
-    // Проверка возраста пользователя
-    const dobValue = new Date(dob);
-    const currentDate = new Date();
-    const minAllowedDate = new Date(currentDate.getFullYear() - 10, currentDate.getMonth(), currentDate.getDate());
-
-    if (dobValue > minAllowedDate) {
-        alert("Пользователь должен быть старше 10 лет");
-        return;
-    }
 
     // для заполнения таблицы
     var table = document.getElementsByTagName('table')[0];
@@ -78,9 +40,88 @@ function GetData() {
     saveDataToLocalStorage(fname, gender, reg_email, pno, dob, reg_login, reg_password, reg_repeat_password);
 }
 
+function getGender() {
+    const maleChecked = document.getElementById("Male").checked;
+    const femaleChecked = document.getElementById("Female").checked;
+
+    if (maleChecked) {
+        return "Male";
+    } else if (femaleChecked) {
+        return "Female";
+    } else {
+        handleGenderSelection();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const genderAlert = document.getElementById("gender_alert");
-    genderAlert.style.visibility = "hidden"; // Начально скрыть сообщение об ошибке
+    const form = document.getElementById('registrationForm');
+
+    // Добавляем обработчик события на ввод в поля формы
+    // Добавляем обработчик события на потерю фокуса (blur) на полях формы
+    form.addEventListener('blur', function (event) {
+        const input = event.target;
+        validateInput(input);
+    }, true);
+
+    function validateInput(input) {
+        const errorElement = input.nextElementSibling; // Получаем элемент, в котором будем выводить сообщение об ошибке
+
+        if (input.checkValidity()) {
+            input.classList.remove('error'); // Удаляем класс ошибки
+            errorElement.textContent = ''; // Очищаем сообщение об ошибке
+        } else {
+            input.classList.add('error'); // Добавляем класс ошибки
+            errorElement.textContent = input.validationMessage; // Выводим стандартное сообщение об ошибке
+        }
+    }
+
+    function handleGenderSelection() {
+        // Проверка, выбран ли хотя бы один из полов
+        const maleChecked = document.getElementById("Male").checked;
+        const femaleChecked = document.getElementById("Female").checked;
+        const genderAlert = document.getElementById("gender_alert");
+
+        if (!maleChecked && !femaleChecked) {
+            genderAlert.textContent = "Выберите пол";
+            document.getElementById("gender").classList.add('error'); // Добавляем класс ошибки
+        } else {
+            genderAlert.textContent = ""; // Очищаем сообщение об ошибке
+            document.getElementById("gender").classList.remove('error'); // Удаляем класс ошибки
+        }
+    }
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Отменяем стандартное поведение формы
+        if (validateForm()) {
+            GetData(); // Вызываем функцию для получения данных и их валидации
+        }
+    });
+
+    function validateForm() {
+        handleGenderSelection(); // Вызываем функцию для проверки выбора пола
+
+        const inputs = form.querySelectorAll('input');
+        let isValid = true;
+
+        inputs.forEach(input => {
+            if (!input.value.trim()) {
+                isValid = false;
+            }
+        });
+
+        if (!validatePasswordMatch()) {
+            isValid = false;
+        }
+
+        if (!isValid) {
+            alert("Заполните все поля");
+        }
+
+        return isValid;
+    }
+
+    loadUserDataFromLocalStorage();
 });
 
 function togglePasswordVisibility(inputId) {
@@ -96,7 +137,29 @@ function togglePasswordVisibility(inputId) {
     }
 }
 
+function validatePasswordMatch() {
+    const password = document.getElementById("reg_password").value;
+    const repeatPassword = document.getElementById("reg_repeat_password").value;
+    const repeatPasswordAlert = document.getElementById("reg_repeat_password_alert");
+
+    if (password !== repeatPassword) {
+        repeatPasswordAlert.textContent = "Пароли не совпадают";
+        repeatPasswordAlert.style.color = "red";
+        return false;
+    }
+
+    repeatPasswordAlert.textContent = ""; // Очищаем сообщение об ошибке
+    return true;
+}
+
 function saveDataToLocalStorage(fname, gender, reg_email, pno, dob, reg_login, reg_password, reg_repeat_password) {
+    const userName = reg_login; // Используем логин пользователя в качестве ключа
+
+    // Получаем текущие данные из localStorage, если они там есть
+    const storedDataString = localStorage.getItem(userName);
+    const storedData = storedDataString ? JSON.parse(storedDataString) : [];
+
+    // Создаем объект для новых данных
     const userData = {
         fname,
         gender,
@@ -108,40 +171,34 @@ function saveDataToLocalStorage(fname, gender, reg_email, pno, dob, reg_login, r
         reg_repeat_password
     };
 
-    localStorage.setItem('userData', JSON.stringify(userData));
+    // Добавляем новые данные в массив
+    storedData.push(userData);
+
+    // Сохраняем массив в localStorage
+    localStorage.setItem(userName, JSON.stringify(storedData));
 }
 
-function getGender() {
-    var male = document.getElementById("Male").checked;
-    var female = document.getElementById("Female").checked;
-    var genderAlert = document.getElementById("gender_alert");
-
-    if (male || female) {
-        genderAlert.innerHTML = "";
-        return male ? "Мужской" : "Женский";
-    } else {
-        alert("Выберите пол");
-        return "";
-    }
-}
-
-function loadUserDataFromLocalStorage() {
-    const userDataString = localStorage.getItem('userData');
+function loadUserDataFromLocalStorage(userName) {
+    const userDataString = localStorage.getItem(userName);
 
     if (userDataString) {
-        const userData = JSON.parse(userDataString);
+        const allUserData = JSON.parse(userDataString);
 
-        document.getElementById("fname").value;
-        document.getElementById("gender").textContent = userData.gender;
-        document.getElementById("reg_email").value = userData.reg_email;
-        document.getElementById("pno").value = userData.pno;
-        document.getElementById("dob").value = userData.dob;
-        document.getElementById("reg_login").value = userData.reg_login;
-        document.getElementById("reg_password").value = userData.reg_password;
-        document.getElementById("reg_repeat_password").value = userData.reg_repeat_password;
+        // Очищаем предыдущие данные на странице
+        const tableBody = document.getElementById('userTableBody');
+        tableBody.innerHTML = '';
+
+        // Проходим по всем пользователям и добавляем их данные на страницу
+        allUserData.forEach((userData, index) => {
+            const newRow = tableBody.insertRow(tableBody.rows.length);
+
+            const cells = Object.values(userData);
+            cells.forEach((cell, cellIndex) => {
+                const newCell = newRow.insertCell(cellIndex);
+                newCell.textContent = cell;
+            });
+        });
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    loadUserDataFromLocalStorage();
-});
+
